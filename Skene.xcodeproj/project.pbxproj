@@ -1,0 +1,548 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		259EE7D91972787C00E1C604 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259EE7D81972787C00E1C604 /* Foundation.framework */; };
+		259EE7DB1972787C00E1C604 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259EE7DA1972787C00E1C604 /* CoreGraphics.framework */; };
+		259EE7DD1972787C00E1C604 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259EE7DC1972787C00E1C604 /* UIKit.framework */; };
+		259EE7E31972787C00E1C604 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 259EE7E11972787C00E1C604 /* InfoPlist.strings */; };
+		259EE7E51972787C00E1C604 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 259EE7E41972787C00E1C604 /* main.m */; };
+		259EE7E91972787C00E1C604 /* TAJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 259EE7E81972787C00E1C604 /* TAJAppDelegate.m */; };
+		259EE7EC1972787C00E1C604 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259EE7EA1972787C00E1C604 /* Main.storyboard */; };
+		259EE7F11972787C00E1C604 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 259EE7F01972787C00E1C604 /* Images.xcassets */; };
+		259EE7F81972787D00E1C604 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259EE7F71972787D00E1C604 /* XCTest.framework */; };
+		259EE7F91972787D00E1C604 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259EE7D81972787C00E1C604 /* Foundation.framework */; };
+		259EE7FA1972787D00E1C604 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259EE7DC1972787C00E1C604 /* UIKit.framework */; };
+		259EE8021972787D00E1C604 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 259EE8001972787D00E1C604 /* InfoPlist.strings */; };
+		259EE8041972787D00E1C604 /* SkeneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 259EE8031972787D00E1C604 /* SkeneTests.m */; };
+		259EE80F19728C3E00E1C604 /* TAJFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259EE80E19728C3E00E1C604 /* TAJFeedViewController.m */; };
+		259EE81219728D7E00E1C604 /* TAJConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259EE81119728D7E00E1C604 /* TAJConversationViewController.m */; };
+		259EE81419729C2F00E1C604 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259EE81319729C2F00E1C604 /* MapKit.framework */; };
+		259EE8171972A23600E1C604 /* TAJROConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259EE8161972A23600E1C604 /* TAJROConversationViewController.m */; };
+		259EE81A1972CB0600E1C604 /* TAJFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 259EE8191972CB0600E1C604 /* TAJFeedCell.m */; };
+		259EE81C1972E75A00E1C604 /* TAJFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 259EE81B1972E75A00E1C604 /* TAJFeedCell.xib */; };
+		259EE81F1972EFDD00E1C604 /* TAJMessageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 259EE81E1972EFDD00E1C604 /* TAJMessageStore.m */; };
+		259EE8221972F9FC00E1C604 /* NSDate+RelativeDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 259EE8211972F9FC00E1C604 /* NSDate+RelativeDate.m */; };
+		259EE8251973006100E1C604 /* TAJLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 259EE8241973006100E1C604 /* TAJLocationManager.m */; };
+		259EE8271973007A00E1C604 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259EE8261973007A00E1C604 /* CoreLocation.framework */; };
+		259EE82B19731F7A00E1C604 /* TAJMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 259EE82919731F7900E1C604 /* TAJMessageCell.m */; };
+		259EE82C19731F7A00E1C604 /* TAJMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 259EE82A19731F7900E1C604 /* TAJMessageCell.xib */; };
+		259EE82F1973297C00E1C604 /* TAJMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259EE82E1973297C00E1C604 /* TAJMapViewController.m */; };
+		259EE832197329E300E1C604 /* TAJMapCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 259EE831197329E300E1C604 /* TAJMapCircle.m */; };
+		259EE8351973429400E1C604 /* TAJMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 259EE8341973429400E1C604 /* TAJMessage.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		259EE7FB1972787D00E1C604 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 259EE7CD1972787C00E1C604 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 259EE7D41972787C00E1C604;
+			remoteInfo = Skene;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		259EE7D51972787C00E1C604 /* Skene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skene.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		259EE7D81972787C00E1C604 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		259EE7DA1972787C00E1C604 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		259EE7DC1972787C00E1C604 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		259EE7E01972787C00E1C604 /* Skene-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Skene-Info.plist"; sourceTree = "<group>"; };
+		259EE7E21972787C00E1C604 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		259EE7E41972787C00E1C604 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		259EE7E61972787C00E1C604 /* Skene-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Skene-Prefix.pch"; sourceTree = "<group>"; };
+		259EE7E71972787C00E1C604 /* TAJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TAJAppDelegate.h; sourceTree = "<group>"; };
+		259EE7E81972787C00E1C604 /* TAJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TAJAppDelegate.m; sourceTree = "<group>"; };
+		259EE7EB1972787C00E1C604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		259EE7F01972787C00E1C604 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		259EE7F61972787D00E1C604 /* SkeneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkeneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		259EE7F71972787D00E1C604 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		259EE7FF1972787D00E1C604 /* SkeneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SkeneTests-Info.plist"; sourceTree = "<group>"; };
+		259EE8011972787D00E1C604 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		259EE8031972787D00E1C604 /* SkeneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkeneTests.m; sourceTree = "<group>"; };
+		259EE80D19728C3E00E1C604 /* TAJFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAJFeedViewController.h; sourceTree = "<group>"; };
+		259EE80E19728C3E00E1C604 /* TAJFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAJFeedViewController.m; sourceTree = "<group>"; };
+		259EE81019728D7E00E1C604 /* TAJConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAJConversationViewController.h; sourceTree = "<group>"; };
+		259EE81119728D7E00E1C604 /* TAJConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAJConversationViewController.m; sourceTree = "<group>"; };
+		259EE81319729C2F00E1C604 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		259EE8151972A23600E1C604 /* TAJROConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAJROConversationViewController.h; sourceTree = "<group>"; };
+		259EE8161972A23600E1C604 /* TAJROConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAJROConversationViewController.m; sourceTree = "<group>"; };
+		259EE8181972CB0600E1C604 /* TAJFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAJFeedCell.h; sourceTree = "<group>"; };
+		259EE8191972CB0600E1C604 /* TAJFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAJFeedCell.m; sourceTree = "<group>"; };
+		259EE81B1972E75A00E1C604 /* TAJFeedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TAJFeedCell.xib; sourceTree = "<group>"; };
+		259EE81D1972EFDD00E1C604 /* TAJMessageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAJMessageStore.h; sourceTree = "<group>"; };
+		259EE81E1972EFDD00E1C604 /* TAJMessageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAJMessageStore.m; sourceTree = "<group>"; };
+		259EE8201972F9FC00E1C604 /* NSDate+RelativeDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RelativeDate.h"; sourceTree = "<group>"; };
+		259EE8211972F9FC00E1C604 /* NSDate+RelativeDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+RelativeDate.m"; sourceTree = "<group>"; };
+		259EE8231973006100E1C604 /* TAJLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAJLocationManager.h; sourceTree = "<group>"; };
+		259EE8241973006100E1C604 /* TAJLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAJLocationManager.m; sourceTree = "<group>"; };
+		259EE8261973007A00E1C604 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		259EE82819731F7900E1C604 /* TAJMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAJMessageCell.h; sourceTree = "<group>"; };
+		259EE82919731F7900E1C604 /* TAJMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAJMessageCell.m; sourceTree = "<group>"; };
+		259EE82A19731F7900E1C604 /* TAJMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TAJMessageCell.xib; sourceTree = "<group>"; };
+		259EE82D1973297C00E1C604 /* TAJMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAJMapViewController.h; sourceTree = "<group>"; };
+		259EE82E1973297C00E1C604 /* TAJMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAJMapViewController.m; sourceTree = "<group>"; };
+		259EE830197329E300E1C604 /* TAJMapCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAJMapCircle.h; sourceTree = "<group>"; };
+		259EE831197329E300E1C604 /* TAJMapCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAJMapCircle.m; sourceTree = "<group>"; };
+		259EE8331973429400E1C604 /* TAJMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAJMessage.h; sourceTree = "<group>"; };
+		259EE8341973429400E1C604 /* TAJMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAJMessage.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		259EE7D21972787C00E1C604 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259EE8271973007A00E1C604 /* CoreLocation.framework in Frameworks */,
+				259EE81419729C2F00E1C604 /* MapKit.framework in Frameworks */,
+				259EE7DB1972787C00E1C604 /* CoreGraphics.framework in Frameworks */,
+				259EE7DD1972787C00E1C604 /* UIKit.framework in Frameworks */,
+				259EE7D91972787C00E1C604 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		259EE7F31972787D00E1C604 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259EE7F81972787D00E1C604 /* XCTest.framework in Frameworks */,
+				259EE7FA1972787D00E1C604 /* UIKit.framework in Frameworks */,
+				259EE7F91972787D00E1C604 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		259EE7CC1972787C00E1C604 = {
+			isa = PBXGroup;
+			children = (
+				259EE7DE1972787C00E1C604 /* Skene */,
+				259EE7FD1972787D00E1C604 /* SkeneTests */,
+				259EE7D71972787C00E1C604 /* Frameworks */,
+				259EE7D61972787C00E1C604 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		259EE7D61972787C00E1C604 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				259EE7D51972787C00E1C604 /* Skene.app */,
+				259EE7F61972787D00E1C604 /* SkeneTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		259EE7D71972787C00E1C604 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				259EE8261973007A00E1C604 /* CoreLocation.framework */,
+				259EE81319729C2F00E1C604 /* MapKit.framework */,
+				259EE7D81972787C00E1C604 /* Foundation.framework */,
+				259EE7DA1972787C00E1C604 /* CoreGraphics.framework */,
+				259EE7DC1972787C00E1C604 /* UIKit.framework */,
+				259EE7F71972787D00E1C604 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		259EE7DE1972787C00E1C604 /* Skene */ = {
+			isa = PBXGroup;
+			children = (
+				259EE7E71972787C00E1C604 /* TAJAppDelegate.h */,
+				259EE7E81972787C00E1C604 /* TAJAppDelegate.m */,
+				259EE7EA1972787C00E1C604 /* Main.storyboard */,
+				259EE7F01972787C00E1C604 /* Images.xcassets */,
+				259EE7DF1972787C00E1C604 /* Supporting Files */,
+				259EE80D19728C3E00E1C604 /* TAJFeedViewController.h */,
+				259EE80E19728C3E00E1C604 /* TAJFeedViewController.m */,
+				259EE81019728D7E00E1C604 /* TAJConversationViewController.h */,
+				259EE81119728D7E00E1C604 /* TAJConversationViewController.m */,
+				259EE8151972A23600E1C604 /* TAJROConversationViewController.h */,
+				259EE8161972A23600E1C604 /* TAJROConversationViewController.m */,
+				259EE8181972CB0600E1C604 /* TAJFeedCell.h */,
+				259EE8191972CB0600E1C604 /* TAJFeedCell.m */,
+				259EE81B1972E75A00E1C604 /* TAJFeedCell.xib */,
+				259EE82819731F7900E1C604 /* TAJMessageCell.h */,
+				259EE82919731F7900E1C604 /* TAJMessageCell.m */,
+				259EE82A19731F7900E1C604 /* TAJMessageCell.xib */,
+				259EE81D1972EFDD00E1C604 /* TAJMessageStore.h */,
+				259EE81E1972EFDD00E1C604 /* TAJMessageStore.m */,
+				259EE8201972F9FC00E1C604 /* NSDate+RelativeDate.h */,
+				259EE8211972F9FC00E1C604 /* NSDate+RelativeDate.m */,
+				259EE8231973006100E1C604 /* TAJLocationManager.h */,
+				259EE8241973006100E1C604 /* TAJLocationManager.m */,
+				259EE82D1973297C00E1C604 /* TAJMapViewController.h */,
+				259EE82E1973297C00E1C604 /* TAJMapViewController.m */,
+				259EE830197329E300E1C604 /* TAJMapCircle.h */,
+				259EE831197329E300E1C604 /* TAJMapCircle.m */,
+				259EE8331973429400E1C604 /* TAJMessage.h */,
+				259EE8341973429400E1C604 /* TAJMessage.m */,
+			);
+			path = Skene;
+			sourceTree = "<group>";
+		};
+		259EE7DF1972787C00E1C604 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				259EE7E01972787C00E1C604 /* Skene-Info.plist */,
+				259EE7E11972787C00E1C604 /* InfoPlist.strings */,
+				259EE7E41972787C00E1C604 /* main.m */,
+				259EE7E61972787C00E1C604 /* Skene-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		259EE7FD1972787D00E1C604 /* SkeneTests */ = {
+			isa = PBXGroup;
+			children = (
+				259EE8031972787D00E1C604 /* SkeneTests.m */,
+				259EE7FE1972787D00E1C604 /* Supporting Files */,
+			);
+			path = SkeneTests;
+			sourceTree = "<group>";
+		};
+		259EE7FE1972787D00E1C604 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				259EE7FF1972787D00E1C604 /* SkeneTests-Info.plist */,
+				259EE8001972787D00E1C604 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		259EE7D41972787C00E1C604 /* Skene */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 259EE8071972787D00E1C604 /* Build configuration list for PBXNativeTarget "Skene" */;
+			buildPhases = (
+				259EE7D11972787C00E1C604 /* Sources */,
+				259EE7D21972787C00E1C604 /* Frameworks */,
+				259EE7D31972787C00E1C604 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Skene;
+			productName = Skene;
+			productReference = 259EE7D51972787C00E1C604 /* Skene.app */;
+			productType = "com.apple.product-type.application";
+		};
+		259EE7F51972787D00E1C604 /* SkeneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 259EE80A1972787D00E1C604 /* Build configuration list for PBXNativeTarget "SkeneTests" */;
+			buildPhases = (
+				259EE7F21972787D00E1C604 /* Sources */,
+				259EE7F31972787D00E1C604 /* Frameworks */,
+				259EE7F41972787D00E1C604 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				259EE7FC1972787D00E1C604 /* PBXTargetDependency */,
+			);
+			name = SkeneTests;
+			productName = SkeneTests;
+			productReference = 259EE7F61972787D00E1C604 /* SkeneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		259EE7CD1972787C00E1C604 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TAJ;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Timo Jääskeläinen";
+				TargetAttributes = {
+					259EE7F51972787D00E1C604 = {
+						TestTargetID = 259EE7D41972787C00E1C604;
+					};
+				};
+			};
+			buildConfigurationList = 259EE7D01972787C00E1C604 /* Build configuration list for PBXProject "Skene" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 259EE7CC1972787C00E1C604;
+			productRefGroup = 259EE7D61972787C00E1C604 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				259EE7D41972787C00E1C604 /* Skene */,
+				259EE7F51972787D00E1C604 /* SkeneTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		259EE7D31972787C00E1C604 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259EE7F11972787C00E1C604 /* Images.xcassets in Resources */,
+				259EE82C19731F7A00E1C604 /* TAJMessageCell.xib in Resources */,
+				259EE7E31972787C00E1C604 /* InfoPlist.strings in Resources */,
+				259EE7EC1972787C00E1C604 /* Main.storyboard in Resources */,
+				259EE81C1972E75A00E1C604 /* TAJFeedCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		259EE7F41972787D00E1C604 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259EE8021972787D00E1C604 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		259EE7D11972787C00E1C604 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259EE80F19728C3E00E1C604 /* TAJFeedViewController.m in Sources */,
+				259EE82F1973297C00E1C604 /* TAJMapViewController.m in Sources */,
+				259EE8251973006100E1C604 /* TAJLocationManager.m in Sources */,
+				259EE82B19731F7A00E1C604 /* TAJMessageCell.m in Sources */,
+				259EE81219728D7E00E1C604 /* TAJConversationViewController.m in Sources */,
+				259EE7E91972787C00E1C604 /* TAJAppDelegate.m in Sources */,
+				259EE8221972F9FC00E1C604 /* NSDate+RelativeDate.m in Sources */,
+				259EE832197329E300E1C604 /* TAJMapCircle.m in Sources */,
+				259EE8171972A23600E1C604 /* TAJROConversationViewController.m in Sources */,
+				259EE81F1972EFDD00E1C604 /* TAJMessageStore.m in Sources */,
+				259EE7E51972787C00E1C604 /* main.m in Sources */,
+				259EE81A1972CB0600E1C604 /* TAJFeedCell.m in Sources */,
+				259EE8351973429400E1C604 /* TAJMessage.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		259EE7F21972787D00E1C604 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259EE8041972787D00E1C604 /* SkeneTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		259EE7FC1972787D00E1C604 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 259EE7D41972787C00E1C604 /* Skene */;
+			targetProxy = 259EE7FB1972787D00E1C604 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		259EE7E11972787C00E1C604 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				259EE7E21972787C00E1C604 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		259EE7EA1972787C00E1C604 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				259EE7EB1972787C00E1C604 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		259EE8001972787D00E1C604 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				259EE8011972787D00E1C604 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		259EE8051972787D00E1C604 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		259EE8061972787D00E1C604 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		259EE8081972787D00E1C604 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Skene/Skene-Prefix.pch";
+				INFOPLIST_FILE = "Skene/Skene-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		259EE8091972787D00E1C604 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Skene/Skene-Prefix.pch";
+				INFOPLIST_FILE = "Skene/Skene-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		259EE80B1972787D00E1C604 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Skene.app/Skene";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Skene/Skene-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SkeneTests/SkeneTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		259EE80C1972787D00E1C604 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Skene.app/Skene";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Skene/Skene-Prefix.pch";
+				INFOPLIST_FILE = "SkeneTests/SkeneTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		259EE7D01972787C00E1C604 /* Build configuration list for PBXProject "Skene" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				259EE8051972787D00E1C604 /* Debug */,
+				259EE8061972787D00E1C604 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		259EE8071972787D00E1C604 /* Build configuration list for PBXNativeTarget "Skene" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				259EE8081972787D00E1C604 /* Debug */,
+				259EE8091972787D00E1C604 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		259EE80A1972787D00E1C604 /* Build configuration list for PBXNativeTarget "SkeneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				259EE80B1972787D00E1C604 /* Debug */,
+				259EE80C1972787D00E1C604 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 259EE7CD1972787C00E1C604 /* Project object */;
+}

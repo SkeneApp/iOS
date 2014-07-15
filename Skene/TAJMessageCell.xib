@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="115" id="KGk-i7-Jjw" customClass="TAJMessageCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="310" translatesAutoresizingMaskIntoConstraints="NO" id="Nbd-XK-5x6">
+                        <rect key="frame" x="5" y="5" width="310" height="82"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <string key="text">message text. this text can be of up to 140 characters long. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqw-uw-n6j">
+                        <rect key="frame" x="5" y="92" width="310" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Nbd-XK-5x6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="2SH-bb-hQF"/>
+                    <constraint firstItem="wqw-uw-n6j" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="3E5-SM-3xe"/>
+                    <constraint firstItem="wqw-uw-n6j" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Nbd-XK-5x6" secondAttribute="bottom" constant="5" id="Dlm-kN-6P0"/>
+                    <constraint firstAttribute="trailing" secondItem="wqw-uw-n6j" secondAttribute="trailing" constant="5" id="EM9-qJ-tCp"/>
+                    <constraint firstAttribute="bottom" secondItem="wqw-uw-n6j" secondAttribute="bottom" constant="5" id="ZVa-t9-Eta"/>
+                    <constraint firstAttribute="trailing" secondItem="Nbd-XK-5x6" secondAttribute="trailing" constant="5" id="cGL-Jy-HnW"/>
+                    <constraint firstItem="Nbd-XK-5x6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="zSt-af-G8G"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="messageTextLabel" destination="Nbd-XK-5x6" id="rJn-2Y-3dR"/>
+                <outlet property="messageTimeLabel" destination="wqw-uw-n6j" id="DOb-m3-ccH"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
