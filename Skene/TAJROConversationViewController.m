@@ -55,6 +55,7 @@
 {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(feedMessagesUpdated:) name:TAJMessageStoreMessagesUpdated object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(feedLocationUpdated:) name:@"FeedLocationUpdated" object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -70,6 +71,7 @@
 {
     [super viewWillDisappear:(BOOL)animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:TAJMessageStoreMessagesUpdated object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FeedLocationUpdated" object:nil];
 }
 
 - (void)feedMessagesUpdated:(NSNotification *)notification
@@ -79,6 +81,13 @@
     [self.messages addObjectsFromArray:repliesInReverseOrder];
     [self.tableView reloadData];
     [self scrollToBottom:self.tableView];
+}
+
+- (void)feedLocationUpdated:(NSNotification *)notification
+{
+    // When user taps on the map to change the feed location,
+    // Return back to the conversation view (the previous view)
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)scrollToBottom:(UITableView *)tableView

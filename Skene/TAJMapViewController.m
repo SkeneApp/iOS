@@ -11,6 +11,8 @@
 #import "TAJMapCircle.h"
 #import "TAJFeedViewController.h"
 
+NSString *const TAJFeedLocationUpdated = @"FeedLocationUpdated";
+
 // The default radius from where to get the map data
 #define DEFAULT_RADIUS 500
 // The maximum number of map data items to fetch at once
@@ -20,17 +22,23 @@
 // The default zoom span in degrees (just approximate value)
 #define DEFAULT_ZOOM_SPAN 0.03
 
-@interface TAJMapViewController () <MKMapViewDelegate>
+@interface TAJMapViewController () <MKMapViewDelegate, LocationProvider>
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) TAJMapCircle *feedCircle;
 @property (nonatomic, strong) NSMutableArray *messageOverlays;
 @property (nonatomic, strong) NSMutableArray *mapData;
+@property (nonatomic, strong) CLLocation *currentLocation;
 
 @end
 
 @implementation TAJMapViewController
+
+- (NSString *)updateNotificationName
+{
+    return TAJFeedLocationUpdated;
+}
 
 - (void)viewDidLoad
 {
@@ -86,7 +94,8 @@
     [self.map addOverlay:self.feedCircle];
     CLLocation *clLocation = [[CLLocation alloc] initWithCoordinate:location altitude:0 horizontalAccuracy:0 verticalAccuracy:0 timestamp:[NSDate date]];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:clLocation, @"location", nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"FeedLocationUpdated" object:self userInfo:userInfo];
+    self.currentLocation = clLocation;
+    [[NSNotificationCenter defaultCenter] postNotificationName:TAJFeedLocationUpdated object:self userInfo:userInfo];
 }
 
 - (TAJMapCircle *)messageToOverlay:(NSDictionary *)message
@@ -153,7 +162,7 @@
         UINavigationController *navController = (UINavigationController *) [segue destinationViewController];
         TAJFeedViewController *feedViewController = [[navController viewControllers] objectAtIndex:0];
         feedViewController.MessageStore = self.MessageStore;
-        feedViewController.LocationManager = self.LocationManager;
+        feedViewController.LocationManager = self;
     }
 }
 

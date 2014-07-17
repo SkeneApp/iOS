@@ -11,7 +11,7 @@
 
 NSString *const TAJUserLocationUpdated = @"TAJUserLocationUpdated";
 
-@interface TAJLocationManager ()
+@interface TAJLocationManager () <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
@@ -43,8 +43,14 @@ NSString *const TAJUserLocationUpdated = @"TAJUserLocationUpdated";
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         _locationManager.distanceFilter = 10.0f;
         _locationManager.delegate = self;
+        [_locationManager requestWhenInUseAuthorization];
     }
     return _locationManager;
+}
+
+- (NSString *)updateNotificationName
+{
+    return TAJUserLocationUpdated;
 }
 
 #pragma mark -- CLLocationManager delegate

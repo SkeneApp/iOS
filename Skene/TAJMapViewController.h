@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TAJMessageStore.h"
+#import "LocationProviderProtocol.h"
 
 @class TAJLocationManager;
 
@@ -15,6 +16,6 @@
 
 // MessageStore and LocationManager are required for this controller to function and must be passed by someone from outside
 @property (nonatomic, strong) TAJMessageStore *MessageStore;
-@property (nonatomic, strong) TAJLocationManager *LocationManager;
+@property (nonatomic, strong) id<LocationProvider> LocationManager;
 
 @end

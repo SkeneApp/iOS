@@ -39,6 +39,8 @@
     mapViewController.MessageStore = messageStore;
     mapViewController.LocationManager = locationManager;
     
+    [locationManager startTracking];
+    
     return YES;
 }
 

@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "LocationProviderProtocol.h"
 
 // Name constants for various notifications that MessageStore emits
 // Emitted after a list of messages form a given parent was updated
 extern NSString * const TAJUserLocationUpdated;
 
-@interface TAJLocationManager : NSObject <CLLocationManagerDelegate>
+@interface TAJLocationManager : NSObject <LocationProvider>
 
 @property (nonatomic, readonly, strong) CLLocation *currentLocation;
 @property (nonatomic, readonly) BOOL isTrackingLocation;

@@ -8,7 +8,6 @@
 
 #import "TAJConversationViewController.h"
 #import "TAJMessageStore.h"
-#import "TAJLocationManager.h"
 #import "TAJMessageCell.h"
 #import "NSDate+RelativeDate.h"
 
@@ -69,7 +68,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(feedMessagesUpdated:) name:TAJMessageStoreMessagesUpdated object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newMessageIdReceived:) name:TAJMessageStoreNewIdReceived object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLocationUpdated:) name:TAJUserLocationUpdated object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLocationUpdated:) name:self.LocationManager.updateNotificationName object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -79,7 +78,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:TAJMessageStoreMessagesUpdated object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:TAJMessageStoreNewIdReceived object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:TAJUserLocationUpdated object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:self.LocationManager.updateNotificationName object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated

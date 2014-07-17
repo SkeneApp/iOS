@@ -12,8 +12,6 @@
 #import "TAJFeedCell.h"
 #import "TAJMessageStore.h"
 #import "NSDate+RelativeDate.h"
-#import <CoreLocation/CoreLocation.h>
-#import "TAJLocationManager.h"
 
 // The default radius from where to get the conversations
 #define DEFAULT_RADIUS 500
@@ -28,9 +26,6 @@
 @property (nonatomic, strong) TAJFeedCell *helperCell;
 // A pointer to the refresh control is stored, for when we need tell it to endRefreshing
 @property (nonatomic, strong) id refreshTableSender;
-// Last coordinate of feed center (either from feedLocation or userLocation)
-@property (nonatomic) double lastLatitude;
-@property (nonatomic) double lastLongitude;
 
 @end
 
@@ -50,7 +45,8 @@
 {
     [super viewWillAppear:animated];
     // Subscribe for notifications
-    [self subscribeToNotifications];
+    BOOL isMapView = (self.LocationManager == nil);
+    [self subscribeToNotifications:isMapView];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -67,9 +63,8 @@
             // Ask to fetch the latest conversations
             [self updateConversations];
         }
-        
-        // Make sure we're getting location updates
-        [self.LocationManager startTracking];
+    } else {
+        [self updateConversations];
     }
 }
 
@@ -78,14 +73,15 @@
     [super viewWillDisappear:animated];
     
     // Always unsubscribe from notifications when view is going away
-    [self unsubscribeFromNotifications];
+    BOOL isMapView = (self.LocationManager == nil);
+    [self unsubscribeFromNotifications:isMapView];
 }
 
 - (void)updateConversations
 {
     // latitude and longitude come from either user location or feed location on map
-    double lat = self.lastLatitude;
-    double lng = self.lastLongitude;
+    double lat = self.LocationManager.currentLocation.coordinate.latitude;
+    double lng = self.LocationManager.currentLocation.coordinate.longitude;
     // If lat and lng were never set, don't bother
     if (lat != 0 || lng != 0) {
         [self.MessageStore updateConversationsAtLatitude:lat longitude:lng withinRadius:DEFAULT_RADIUS limit:CONVERSATION_LIMIT];
@@ -150,18 +146,16 @@
 
 #pragma mark - Notifications
 
-- (void)subscribeToNotifications
+- (void)subscribeToNotifications:(BOOL)isMapView
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(feedMessagesUpdated:) name:TAJMessageStoreConversationsUpdated object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLocationUpdated:) name:TAJUserLocationUpdated object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLocationUpdated:) name:@"FeedLocationUpdated" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLocationUpdated:) name:self.LocationManager.updateNotificationName object:nil];
 }
 
-- (void)unsubscribeFromNotifications
+- (void)unsubscribeFromNotifications:(BOOL)isMapView
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:TAJMessageStoreConversationsUpdated object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:TAJUserLocationUpdated object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"FeedLocationUpdated" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:self.LocationManager.updateNotificationName object:nil];
 }
 
 - (void)feedMessagesUpdated:(NSNotification *)notification
@@ -173,10 +167,6 @@
 
 - (void)userLocationUpdated:(NSNotification *)notification
 {
-    NSDictionary *userInfo = [notification userInfo];
-    CLLocation *location = userInfo[@"location"];
-    self.lastLatitude = location.coordinate.latitude;
-    self.lastLongitude = location.coordinate.longitude;
     [self updateConversations];
 }
 

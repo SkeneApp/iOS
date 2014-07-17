@@ -91,6 +91,7 @@
 		259EE831197329E300E1C604 /* TAJMapCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAJMapCircle.m; sourceTree = "<group>"; };
 		259EE8331973429400E1C604 /* TAJMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAJMessage.h; sourceTree = "<group>"; };
 		259EE8341973429400E1C604 /* TAJMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAJMessage.m; sourceTree = "<group>"; };
+		25E5D7E01976C08500F68721 /* LocationProviderProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationProviderProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +184,7 @@
 				259EE831197329E300E1C604 /* TAJMapCircle.m */,
 				259EE8331973429400E1C604 /* TAJMessage.h */,
 				259EE8341973429400E1C604 /* TAJMessage.m */,
+				25E5D7E01976C08500F68721 /* LocationProviderProtocol.h */,
 			);
 			path = Skene;
 			sourceTree = "<group>";
@@ -533,6 +535,7 @@
 				259EE8091972787D00E1C604 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		259EE80A1972787D00E1C604 /* Build configuration list for PBXNativeTarget "SkeneTests" */ = {
 			isa = XCConfigurationList;
@@ -541,6 +544,7 @@
 				259EE80C1972787D00E1C604 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

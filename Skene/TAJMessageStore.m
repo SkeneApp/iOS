@@ -78,6 +78,18 @@ NSString *const TAJMessageStoreNewIdReceived = @"TAJMessageNewMessageIdReceived"
     [task resume];
 }
 
+- (void)getServerTime
+{
+    NSString *requestString = @"http://whispr.outi.me/api/v2_server_time";
+    NSURLRequest *request = [self requestFromUrlString:requestString];
+    NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        _messages = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        _lastRefresh = [NSDate date];
+        [self notify:TAJMessageStoreMessagesUpdated];
+    }];
+    [task resume];
+}
+
 - (void)postMessageAtLatitude:(double)lat longitude:(double)lng withText:(NSString *)text delay:(int)delaySec parent:(int)parentId
 {
     // Use dictionary that will be serialized into JSON
