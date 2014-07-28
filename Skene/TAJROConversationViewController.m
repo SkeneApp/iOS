@@ -92,9 +92,9 @@
 
 - (void)scrollToBottom:(UITableView *)tableView
 {
-    int numRows = [tableView numberOfRowsInSection:0];
+    NSInteger numRows = [tableView numberOfRowsInSection:0];
     if (numRows > 0) {
-        int lastRowNumber = [tableView numberOfRowsInSection:0]-1;
+        NSInteger lastRowNumber = [tableView numberOfRowsInSection:0]-1;
         NSIndexPath* ip = [NSIndexPath indexPathForRow:lastRowNumber inSection:0];
         [tableView scrollToRowAtIndexPath:ip atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }

@@ -8,12 +8,61 @@
 
 #import "TAJMapCircle.h"
 
+#define FEED_COLOR greenColor
+#define FEED_FILL_OPACITY 0.2
+#define FEED_STROKE_OPACITY 0.7
+#define FEED_STROKE_WIDTH 3
+
+#define MESSAGE_COLOR redColor
+#define MESSAGE_FILL_OPACITY 0.5
+#define MESSAGE_STROKE_OPACITY 0.7
+#define MESSAGE_STROKE_WIDTH 5
+
 @implementation TAJMapCircle
 
-+ (instancetype)mapCircleWithCircle:(MKCircle *)circle
++ (instancetype)mapCircleOfType:(TAJMapCircleType)type withLocation:(CLLocationCoordinate2D)location andRadius:(CLLocationDistance)radiusMeters
+{
+    TAJMapCircle *mapCircle = [[TAJMapCircle alloc] init];
+    mapCircle.circle = [MKCircle circleWithCenterCoordinate:location radius:radiusMeters];
+    mapCircle.type = type;
+    switch (type) {
+        case kTAJMapCircleTypeFeedLocation:
+            mapCircle.fillColor = [[UIColor FEED_COLOR] colorWithAlphaComponent:FEED_FILL_OPACITY];
+            mapCircle.strokeColor = [[UIColor FEED_COLOR] colorWithAlphaComponent:FEED_STROKE_OPACITY];
+            mapCircle.strokeWidth = FEED_STROKE_WIDTH;
+            break;
+        case kTAJMapCircleTypeMessage:
+            mapCircle.fillColor = [[UIColor MESSAGE_COLOR] colorWithAlphaComponent:MESSAGE_FILL_OPACITY];
+            mapCircle.strokeColor = [[UIColor MESSAGE_COLOR] colorWithAlphaComponent:MESSAGE_STROKE_OPACITY];
+            mapCircle.strokeWidth = MESSAGE_STROKE_WIDTH;
+            break;
+            
+        default:
+            break;
+    }
+    return mapCircle;
+}
+
++ (instancetype)mapCircleOfType:(TAJMapCircleType)type WithCircle:(MKCircle *)circle
 {
     TAJMapCircle *mapCircle = [[TAJMapCircle alloc] init];
     mapCircle.circle = circle;
+    mapCircle.type = type;
+    switch (type) {
+        case kTAJMapCircleTypeFeedLocation:
+            mapCircle.fillColor = [[UIColor FEED_COLOR] colorWithAlphaComponent:FEED_FILL_OPACITY];
+            mapCircle.strokeColor = [[UIColor FEED_COLOR] colorWithAlphaComponent:FEED_STROKE_OPACITY];
+            mapCircle.strokeWidth = FEED_STROKE_WIDTH;
+            break;
+        case kTAJMapCircleTypeMessage:
+            mapCircle.fillColor = [[UIColor MESSAGE_COLOR] colorWithAlphaComponent:MESSAGE_FILL_OPACITY];
+            mapCircle.strokeColor = [[UIColor MESSAGE_COLOR] colorWithAlphaComponent:MESSAGE_STROKE_OPACITY];
+            mapCircle.strokeWidth = MESSAGE_STROKE_WIDTH;
+            break;
+            
+        default:
+            break;
+    }
     return mapCircle;
 }
 

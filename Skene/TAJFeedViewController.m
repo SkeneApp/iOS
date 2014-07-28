@@ -14,7 +14,7 @@
 #import "NSDate+RelativeDate.h"
 
 // The default radius from where to get the conversations
-#define DEFAULT_RADIUS 500
+#define DEFAULT_RADIUS 250
 // The maximum number of conversations to fetch at once
 #define CONVERSATION_LIMIT 50
 

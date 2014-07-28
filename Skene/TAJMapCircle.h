@@ -21,8 +21,10 @@ typedef NS_ENUM(NSUInteger, TAJMapCircleType) {
 
 @property (nonatomic, retain) MKCircle *circle;
 @property (nonatomic) TAJMapCircleType type;
-@property (nonatomic) double opacity;
+@property (nonatomic) double strokeWidth;
+@property (nonatomic, strong) UIColor *fillColor;
+@property (nonatomic, strong) UIColor *strokeColor;
 
-+ (instancetype)mapCircleWithCircle:(MKCircle *)circle;
++ (instancetype)mapCircleOfType:(TAJMapCircleType)type withLocation:(CLLocationCoordinate2D)location andRadius:(CLLocationDistance)radiusMeters;
 
 @end

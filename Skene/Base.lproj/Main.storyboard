@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="14A261i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="i7k-mP-n1x">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="i7k-mP-n1x">
     <dependencies>
         <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
@@ -413,7 +413,7 @@
                                     <outlet property="delegate" destination="Al2-b2-2cW" id="f4L-GM-0s6"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfE-Vh-put">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfE-Vh-put">
                                 <rect key="frame" x="0.0" y="523" width="320" height="45"/>
                                 <color key="backgroundColor" white="0.96880702554744536" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -450,21 +450,20 @@
                         <constraints>
                             <constraint firstItem="tfE-Vh-put" firstAttribute="leading" secondItem="RFG-pU-2h7" secondAttribute="leading" id="1v8-1Z-s6x"/>
                             <constraint firstAttribute="bottom" secondItem="jA1-X3-MyD" secondAttribute="bottom" constant="6" id="5aZ-uw-kEB"/>
-                            <constraint firstItem="4Un-Og-aNp" firstAttribute="top" secondItem="RFG-pU-2h7" secondAttribute="top" id="DQv-u1-tWT"/>
+                            <constraint firstItem="4Un-Og-aNp" firstAttribute="top" secondItem="RFG-pU-2h7" secondAttribute="top" id="F8D-Sp-nfc"/>
                             <constraint firstAttribute="bottom" secondItem="3Ob-wT-HCC" secondAttribute="bottom" constant="7" id="LAl-Ow-wAB"/>
                             <constraint firstItem="3Ob-wT-HCC" firstAttribute="leading" secondItem="RFG-pU-2h7" secondAttribute="leading" constant="7" id="OQU-NN-ju7"/>
                             <constraint firstAttribute="trailing" secondItem="jA1-X3-MyD" secondAttribute="trailing" constant="6" id="X27-AA-4Mn"/>
                             <constraint firstAttribute="trailing" secondItem="oQj-a8-NIc" secondAttribute="trailing" id="XhS-Gt-5vc"/>
                             <constraint firstAttribute="bottom" secondItem="tfE-Vh-put" secondAttribute="bottom" id="YNL-fq-j1d"/>
-                            <constraint firstItem="4Un-Og-aNp" firstAttribute="leading" secondItem="RFG-pU-2h7" secondAttribute="leading" id="ZZX-Vh-Bgg"/>
                             <constraint firstItem="3Ob-wT-HCC" firstAttribute="top" secondItem="oQj-a8-NIc" secondAttribute="bottom" constant="7" id="aLA-QX-Agh"/>
+                            <constraint firstItem="4Un-Og-aNp" firstAttribute="trailing" secondItem="oQj-a8-NIc" secondAttribute="trailing" id="cd9-Nd-XZB"/>
                             <constraint firstAttribute="trailing" secondItem="tfE-Vh-put" secondAttribute="trailing" id="fcQ-xz-em3"/>
-                            <constraint firstItem="oQj-a8-NIc" firstAttribute="top" secondItem="4Un-Og-aNp" secondAttribute="bottom" id="gl8-zR-RQV"/>
                             <constraint firstItem="oQj-a8-NIc" firstAttribute="leading" secondItem="RFG-pU-2h7" secondAttribute="leading" id="j4o-hs-o5I"/>
-                            <constraint firstItem="tfE-Vh-put" firstAttribute="top" secondItem="4Un-Og-aNp" secondAttribute="bottom" id="jwN-aM-cEd"/>
                             <constraint firstItem="jA1-X3-MyD" firstAttribute="leading" secondItem="3Ob-wT-HCC" secondAttribute="trailing" constant="8" id="o12-JN-q7n"/>
-                            <constraint firstAttribute="trailing" secondItem="4Un-Og-aNp" secondAttribute="trailing" id="qft-a2-JXq"/>
                             <constraint firstItem="jA1-X3-MyD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oQj-a8-NIc" secondAttribute="bottom" constant="5" id="qlk-zz-nLU"/>
+                            <constraint firstItem="4Un-Og-aNp" firstAttribute="leading" secondItem="oQj-a8-NIc" secondAttribute="leading" id="wNa-xV-6Ri"/>
+                            <constraint firstItem="3Ob-wT-HCC" firstAttribute="top" secondItem="4Un-Og-aNp" secondAttribute="bottom" constant="8" symbolic="YES" id="yDp-wf-rVt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Conversation" id="1Ek-ni-0qv"/>

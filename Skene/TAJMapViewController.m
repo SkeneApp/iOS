@@ -14,7 +14,7 @@
 NSString *const TAJFeedLocationUpdated = @"FeedLocationUpdated";
 
 // The default radius from where to get the map data
-#define DEFAULT_RADIUS 500
+#define DEFAULT_RADIUS 250
 // The maximum number of map data items to fetch at once
 #define MAP_DATA_ITEMS_LIMIT 50
 // The radius of map data item in meters
@@ -29,16 +29,36 @@ NSString *const TAJFeedLocationUpdated = @"FeedLocationUpdated";
 @property (nonatomic, strong) TAJMapCircle *feedCircle;
 @property (nonatomic, strong) NSMutableArray *messageOverlays;
 @property (nonatomic, strong) NSMutableArray *mapData;
-@property (nonatomic, strong) CLLocation *currentLocation;
+@property (nonatomic, strong) CLLocation *_currentLocation;
 
 @end
 
 @implementation TAJMapViewController
 
+#pragma mark - LocationProviderProtocol
+
 - (NSString *)updateNotificationName
 {
     return TAJFeedLocationUpdated;
 }
+
+- (CLLocation *)currentLocation
+{
+    return self._currentLocation;
+}
+
+- (void)setCurrentLocation:(CLLocation *)location
+{
+    self._currentLocation = location;
+}
+
+- (void)sendLocationUpdateNotification
+{
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:self.currentLocation, @"location", nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:TAJFeedLocationUpdated object:self userInfo:userInfo];
+}
+
+#pragma mark - UIViewController overrides
 
 - (void)viewDidLoad
 {
@@ -64,6 +84,8 @@ NSString *const TAJFeedLocationUpdated = @"FeedLocationUpdated";
     [[NSNotificationCenter defaultCenter] removeObserver:self name:TAJMessageStoreMapDataUpdated object:nil];
 }
 
+#pragma mark - Map event handlers
+
 - (void)handleTapGesture:(UIGestureRecognizer *)gestureRecognizer
 {
     if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
@@ -84,18 +106,28 @@ NSString *const TAJFeedLocationUpdated = @"FeedLocationUpdated";
     [self.map addOverlays:self.messageOverlays];
 }
 
+#pragma mark - Map helper methods
+
 - (void)setFeedLocation:(CLLocationCoordinate2D)location andRadius:(CLLocationDistance)radiusMeters
+{
+    [self removeFeedCircleIfExists];
+    [self addFeedCircleWithLocation:location andRadius:radiusMeters];
+}
+
+- (void)removeFeedCircleIfExists
 {
     if (self.feedCircle) {
         [self.map removeOverlay:self.feedCircle];
     }
-    self.feedCircle = [TAJMapCircle mapCircleWithCircle:[MKCircle circleWithCenterCoordinate:location radius:radiusMeters]];
-    self.feedCircle.type = kTAJMapCircleTypeFeedLocation;
+}
+
+- (void)addFeedCircleWithLocation:(CLLocationCoordinate2D)location andRadius:(CLLocationDistance)radiusMeters
+{
+    self.feedCircle = [TAJMapCircle mapCircleOfType:kTAJMapCircleTypeFeedLocation withLocation:location andRadius:radiusMeters];
     [self.map addOverlay:self.feedCircle];
     CLLocation *clLocation = [[CLLocation alloc] initWithCoordinate:location altitude:0 horizontalAccuracy:0 verticalAccuracy:0 timestamp:[NSDate date]];
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:clLocation, @"location", nil];
-    self.currentLocation = clLocation;
-    [[NSNotificationCenter defaultCenter] postNotificationName:TAJFeedLocationUpdated object:self userInfo:userInfo];
+    [self setCurrentLocation:clLocation];
+    [self sendLocationUpdateNotification];
 }
 
 - (TAJMapCircle *)messageToOverlay:(NSDictionary *)message
@@ -103,12 +135,11 @@ NSString *const TAJFeedLocationUpdated = @"FeedLocationUpdated";
     double lat = [message[@"latitude"] doubleValue];
     double lng = [message[@"longitude"] doubleValue];
     CLLocationCoordinate2D location = CLLocationCoordinate2DMake(lat, lng);
-    CLLocationDistance radius = MAP_DATA_ITEM_RADIUS;
-    TAJMapCircle *circle = [TAJMapCircle mapCircleWithCircle:[MKCircle circleWithCenterCoordinate:location radius:radius]];
-    circle.type = kTAJMapCircleTypeMessage;
-    circle.opacity = 0.5;
+    TAJMapCircle *circle = [TAJMapCircle mapCircleOfType:kTAJMapCircleTypeMessage withLocation:location andRadius:MAP_DATA_ITEM_RADIUS];
     return circle;
 }
+
+#pragma mark - MKMapViewDelegate
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
@@ -137,16 +168,16 @@ NSString *const TAJFeedLocationUpdated = @"FeedLocationUpdated";
         if (mapCircle.type == kTAJMapCircleTypeFeedLocation) {
             // This is feed circle
             MKCircleRenderer *renderer = [[MKCircleRenderer alloc]initWithCircle:mapCircle.circle];
-            renderer.fillColor = [[UIColor greenColor] colorWithAlphaComponent:0.2];
-            renderer.strokeColor = [[UIColor greenColor] colorWithAlphaComponent:0.7];
-            renderer.lineWidth = 3;
+            renderer.fillColor = mapCircle.fillColor;
+            renderer.strokeColor = mapCircle.strokeColor;
+            renderer.lineWidth = mapCircle.strokeWidth;
             return renderer;
         } else {
             // This is message circle
             MKCircleRenderer *renderer = [[MKCircleRenderer alloc]initWithCircle:mapCircle.circle];
-            renderer.fillColor = [[UIColor redColor] colorWithAlphaComponent:mapCircle.opacity];
-            renderer.strokeColor = [[UIColor redColor] colorWithAlphaComponent:mapCircle.opacity];
-            renderer.lineWidth = 3;
+            renderer.fillColor = mapCircle.fillColor;
+            renderer.strokeColor = mapCircle.strokeColor;
+            renderer.lineWidth = mapCircle.strokeWidth;
             return renderer;
         }
     }
@@ -154,6 +185,8 @@ NSString *const TAJFeedLocationUpdated = @"FeedLocationUpdated";
     // We don't handle that, so return nil to cancel
     return nil;
 }
+
+#pragma mark - Segues
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
