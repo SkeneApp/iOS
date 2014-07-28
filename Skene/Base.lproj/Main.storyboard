@@ -37,7 +37,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lQ2-KF-TwK">
-                                <rect key="frame" x="0.0" y="259.5" width="320" height="259.5"/>
+                                <rect key="frame" x="0.0" y="259" width="320" height="259.5"/>
                             </mapView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3l-uw-SdX">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="258.5"/>
@@ -47,7 +47,7 @@
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kv-LC-i5s">
-                                <rect key="frame" x="0.0" y="258.5" width="320" height="1"/>
+                                <rect key="frame" x="0.0" y="258" width="320" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="F3j-cU-6X4"/>
@@ -413,9 +413,12 @@
                                     <outlet property="delegate" destination="Al2-b2-2cW" id="f4L-GM-0s6"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfE-Vh-put">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfE-Vh-put">
                                 <rect key="frame" x="0.0" y="523" width="320" height="45"/>
                                 <color key="backgroundColor" white="0.96880702554744536" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="uEi-TI-goo"/>
+                                </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Ob-wT-HCC">
                                 <rect key="frame" x="7" y="531" width="258" height="30"/>
@@ -453,20 +456,21 @@
                             <constraint firstItem="4Un-Og-aNp" firstAttribute="top" secondItem="RFG-pU-2h7" secondAttribute="top" id="F8D-Sp-nfc"/>
                             <constraint firstAttribute="bottom" secondItem="3Ob-wT-HCC" secondAttribute="bottom" constant="7" id="LAl-Ow-wAB"/>
                             <constraint firstItem="3Ob-wT-HCC" firstAttribute="leading" secondItem="RFG-pU-2h7" secondAttribute="leading" constant="7" id="OQU-NN-ju7"/>
+                            <constraint firstAttribute="trailing" secondItem="4Un-Og-aNp" secondAttribute="trailing" id="Rn1-4N-yAD"/>
                             <constraint firstAttribute="trailing" secondItem="jA1-X3-MyD" secondAttribute="trailing" constant="6" id="X27-AA-4Mn"/>
                             <constraint firstAttribute="trailing" secondItem="oQj-a8-NIc" secondAttribute="trailing" id="XhS-Gt-5vc"/>
                             <constraint firstAttribute="bottom" secondItem="tfE-Vh-put" secondAttribute="bottom" id="YNL-fq-j1d"/>
                             <constraint firstItem="3Ob-wT-HCC" firstAttribute="top" secondItem="oQj-a8-NIc" secondAttribute="bottom" constant="7" id="aLA-QX-Agh"/>
-                            <constraint firstItem="4Un-Og-aNp" firstAttribute="trailing" secondItem="oQj-a8-NIc" secondAttribute="trailing" id="cd9-Nd-XZB"/>
+                            <constraint firstItem="4Un-Og-aNp" firstAttribute="leading" secondItem="RFG-pU-2h7" secondAttribute="leading" id="b4d-mN-N6e"/>
                             <constraint firstAttribute="trailing" secondItem="tfE-Vh-put" secondAttribute="trailing" id="fcQ-xz-em3"/>
                             <constraint firstItem="oQj-a8-NIc" firstAttribute="leading" secondItem="RFG-pU-2h7" secondAttribute="leading" id="j4o-hs-o5I"/>
                             <constraint firstItem="jA1-X3-MyD" firstAttribute="leading" secondItem="3Ob-wT-HCC" secondAttribute="trailing" constant="8" id="o12-JN-q7n"/>
                             <constraint firstItem="jA1-X3-MyD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oQj-a8-NIc" secondAttribute="bottom" constant="5" id="qlk-zz-nLU"/>
-                            <constraint firstItem="4Un-Og-aNp" firstAttribute="leading" secondItem="oQj-a8-NIc" secondAttribute="leading" id="wNa-xV-6Ri"/>
                             <constraint firstItem="3Ob-wT-HCC" firstAttribute="top" secondItem="4Un-Og-aNp" secondAttribute="bottom" constant="8" symbolic="YES" id="yDp-wf-rVt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Conversation" id="1Ek-ni-0qv"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="messageInput" destination="3Ob-wT-HCC" id="7ai-ka-g2K"/>
                         <outlet property="sendButton" destination="jA1-X3-MyD" id="NO0-KX-CWd"/>
