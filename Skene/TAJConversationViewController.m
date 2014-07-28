@@ -26,8 +26,9 @@
 // Since this view controller is not a UITableViewController, we need a reference to the table
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-// Keyboard height is saved when keyboard appears and the value is used for animation when keyboard disappears
-@property (nonatomic) float keyboardHeight;
+// Default constraint sizes - needed when keyboard is appearing or disappearing
+@property (nonatomic) CGFloat textFieldBottomConstraintConstantDefault;
+@property (nonatomic) CGFloat sendButtonBottomConstraintConstantDefault;
 // This is a list of messages that are displated in the table view
 @property (nonatomic, strong) NSMutableArray *messages;
 // Parent message ID is saved for fast access. TODO: Start using TAJMessage and get rid of this
@@ -84,6 +85,9 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    // Get default size of keyboard related onstrains
+    self.textFieldBottomConstraintConstantDefault = self.textFieldBottomConstraint.constant;
+    self.sendButtonBottomConstraintConstantDefault = self.sendButtonBottomConstraint.constant;
     // If this is a new conversation, set focus on the input text
     if (self.parentMessage == nil) {
         [self.messageInput becomeFirstResponder];
@@ -147,10 +151,9 @@
 {
     NSDictionary *userInfo = [notification userInfo];
     CGRect keyboardFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    self.keyboardHeight = keyboardFrame.size.height;
     
-    self.textFieldBottomConstraint.constant += self.keyboardHeight;
-    self.sendButtonBottomConstraint.constant += self.keyboardHeight;
+    self.textFieldBottomConstraint.constant = self.textFieldBottomConstraintConstantDefault + keyboardFrame.size.height;
+    self.sendButtonBottomConstraint.constant = self.sendButtonBottomConstraintConstantDefault + keyboardFrame.size.height;
     
     // Animate the layout change along with keyboard animation
     NSTimeInterval animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
@@ -172,8 +175,8 @@
     self.sendButton.enabled = NO;
     
     // Adjust bottom constraints using animation while the keyboard is sliding away
-    self.textFieldBottomConstraint.constant -= self.keyboardHeight;
-    self.sendButtonBottomConstraint.constant -= self.keyboardHeight;
+    self.textFieldBottomConstraint.constant = self.textFieldBottomConstraintConstantDefault;
+    self.sendButtonBottomConstraint.constant = self.sendButtonBottomConstraintConstantDefault;
     
     NSDictionary *userInfo = [notification userInfo];
     NSTimeInterval animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
